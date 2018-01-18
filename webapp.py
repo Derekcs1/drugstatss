@@ -6,7 +6,7 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 
 @app.route("/")
 def render_main():
-    with open('static/drugs.json') as drug_data:
+    with open('drugs.json') as drug_data:
         rates = json.load(drug_data)
     if 'State' in request.args:
         selected_state = request.args["State"]
