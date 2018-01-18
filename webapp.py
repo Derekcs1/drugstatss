@@ -6,12 +6,13 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 
 @app.route("/")
 def render_main():
-    with open('drugs.json') as drug_data:
+    with open('static/drugs.json') as drug_data:
         rates = json.load(drug_data)
     if 'State' in request.args:
         selected_state = request.args["State"]
         return render_template('statsPage1.html', response_options = get_state_options(rates), percentAbuse = percentAbuse(rates, selected_state), response_state = selected_state)
-    return render_template('statsPage1.html', response_options = get_state_options(rates))
+        return render_template('statsPage2.html', response_options = get_state_options(rates), percentUse = percentUse(rates, selected_state), response_state = selected_state)
+    return render_template('statsPage2.html', response_options = get_state_options(rates))
 
 def get_state_options(rates):
     states = []
@@ -26,8 +27,17 @@ def percentAbuse(rates, selected_state):
     percentAbuse = 0
     for c in rates:
         if c["State"] == selected_state:
-            percentAbuse = c["Rates"]["Pain Relievers Abuse Past Year"]["18-25"]
+            percentAbuse = c["Pain Relievers Abuse Past Year"]["18-25"]
     return str(percentAbuse)
 
+def percentUse(rates, selected_state):
+    percentUse = 0
+    for c in rates:
+        if c["State"] == selected_state:
+            percentUse = c["Dependence Past Year"]["18-25"]
+    return str(percentUse)
+
+
+
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False, port=54321)
