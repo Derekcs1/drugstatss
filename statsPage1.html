@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title> stats </title>
+    </head>
+    <body>
+        <form action=".">
+          <select name="State">
+            {{ response_options }}
+          </select>
+          <br><br>
+          <input type="submit">
+      </form>
+      {% if response_state and percentAbuse is defined %}
+        <p> In {{ response_state }}, {{ percentAbuse }} percent of people abuse drugs </p>
+      {% endif %}
+    </body>
+</html>
