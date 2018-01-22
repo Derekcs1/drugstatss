@@ -29,7 +29,7 @@ def percentAbuse(rates, selected_state):
         if r["State"] == selected_state:
             print(r)
             pprint.pprint(r)
-            percentAbuse = r["Rates"]["All Except Marijuana Used Past Month"]["18-25"]
+            percentAbuse = r["Rates"]["Pain Relievers Abuse Past Year"]["18-25"]
     return str(percentAbuse)
 
 if __name__=="__main__":
