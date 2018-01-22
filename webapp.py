@@ -29,7 +29,5 @@ def percentAbuse(rates, selected_state):
             percentAbuse = c["Abuse Past Month"]["18-25"]
     return str(percentAbuse)
 
-
-
 if __name__=="__main__":
     app.run(debug=True)
