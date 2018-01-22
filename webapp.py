@@ -32,4 +32,4 @@ def percentAbuse(rates, selected_state):
 
 
 if __name__=="__main__":
-    app.run(debug=False, port=54321)
+    app.run(debug=True, port=54321)
