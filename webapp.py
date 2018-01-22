@@ -10,8 +10,8 @@ def render_main():
         rates = json.load(drug_data)
     if 'State' in request.args:
         selected_state = request.args["State"]
-        return render_template('statsPage1.html', response_options = get_state_options(rates), percentAbuse = percentAbuse(rates, selected_state), response_state = selected_state)
-    return render_template('statsPage1.html', response_options = get_state_options(rates))
+        return render_template('templates/statsPage1.html', response_options = get_state_options(rates), percentAbuse = percentAbuse(rates, selected_state), response_state = selected_state)
+    return render_template('templates/statsPage1.html', response_options = get_state_options(rates))
 
 def get_state_options(rates):
     states = []
