@@ -16,17 +16,17 @@ def render_main():
 def get_state_options(rates):
     states = []
     options = ""
-    for c in rates:
-        if c["State"] not in states:
-            states.append(c["State"])
-            options += Markup("<option value=\"" + c["State"] + "\">" + c["State"] + "</option>")
+    for r in rates:
+        if r["State"] not in states:
+            states.append(r["State"])
+            options += Markup("<option value=\"" + r["State"] + "\">" + r["State"] + "</option>")
     return options
 
 def percentAbuse(rates, selected_state):
     percentAbuse = 0
-    for c in rates:
-        if c["State"] == selected_state:
-            percentAbuse = c["Abuse Past Month"]["18-25"]
+    for r in rates:
+        if r["State"] == selected_state:
+            percentAbuse = r["Abuse Past Month"]["18-25"]
     return str(percentAbuse)
 
 if __name__=="__main__":
