@@ -26,7 +26,7 @@ def percentAbuse(rates, selected_state):
     percentAbuse = 0
     for r in rates:
         if r["State"] == selected_state:
-            percentAbuse = r["Abuse Past Month"]["18-25"]
+            percentAbuse = r["Illicit Drugs"]["Abuse Past Month"]["18-25"]
     return str(percentAbuse)
 
 if __name__=="__main__":
