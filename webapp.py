@@ -1,6 +1,7 @@
 from flask import Flask, request, Markup, render_template, flash, Markup
 import os
 import json
+import pprint
 
 app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  Otherwise, it is the name of the file (ex. webapp)
 
@@ -26,7 +27,7 @@ def percentAbuse(rates, selected_state):
     percentAbuse = 0
     for r in rates:
         if r["State"] == selected_state:
-            print(r)
+            pprint.pprint(r)
             percentAbuse = r["Illicit Drugs"]["Abuse Past Month"]["18-25"]
     return str(percentAbuse)
 
