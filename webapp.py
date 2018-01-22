@@ -11,8 +11,7 @@ def render_main():
     if 'State' in request.args:
         selected_state = request.args["State"]
         return render_template('statsPage1.html', response_options = get_state_options(rates), percentAbuse = percentAbuse(rates, selected_state), response_state = selected_state)
-        return render_template('statsPage2.html', response_options = get_state_options(rates), percentUse = percentUse(rates, selected_state), response_state = selected_state)
-    return render_template('statsPage2.html', response_options = get_state_options(rates))
+    return render_template('statsPage1.html', response_options = get_state_options(rates))
 
 def get_state_options(rates):
     states = []
@@ -29,13 +28,6 @@ def percentAbuse(rates, selected_state):
         if c["State"] == selected_state:
             percentAbuse = c["Pain Relievers Abuse Past Year"]["18-25"]
     return str(percentAbuse)
-
-def percentUse(rates, selected_state):
-    percentUse = 0
-    for c in rates:
-        if c["State"] == selected_state:
-            percentUse = c["Dependence Past Year"]["18-25"]
-    return str(percentUse)
 
 
 
